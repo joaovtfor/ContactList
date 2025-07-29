@@ -146,15 +146,15 @@ class ContactController extends Controller
         return redirect()->route('contacts.index')->with('success', 'Contato excluído com sucesso.');
     }
 
-    public function search(Request $request)
-    {
-        $term = $request->input('term', '');
+    // public function search(Request $request)
+    // {
+    //     $term = $request->input('term', '');
 
-        $contacts = Contact::search($term);
+    //     $contacts = Contact::search($term);
 
-        return response()->json([
-            'term'     => $term,
-            'contacts' => $contacts,
-        ], 200);
-    }
+    //     return response()->json([
+    //         'term'     => $term,
+    //         'contacts' => $contacts,
+    //     ], 200);
+    // }
 }
