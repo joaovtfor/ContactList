@@ -1,4 +1,3 @@
-````markdown
 # ContactList
 
 ## Descrição
@@ -40,8 +39,7 @@ A **ContactList** é um sistema web moderno para gerenciar informações de cont
 1. Clone o repositório:  
    ```bash
    git clone https://github.com/joaovtfor/contactlist.git
-````
-
+   ```
 2. Acesse a pasta do projeto:
 
    ```bash
