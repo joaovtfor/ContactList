@@ -88,20 +88,26 @@ const filteredContacts = computed(() => {
     });
 });
 
-function formatPhone(input: string | number): string {
-    const str = String(input).replace(/\D/g, '');
+function formatPhone(raw: string) {
+    let mask = '(##) # ####-####';
+    const digits = raw.replace(/\D/g, '');
+    if (digits.length === 0) return '';
+    if (digits.length < 11) {
+        mask = '(###) ###-####';
+    }
+    let result = '';
+    let di = 0;
 
-    const regex = /^(\d{2})(\d{1})(\d{4})(\d{4})$/;
-    const match = str.match(regex);
-
-    if (!match) {
-        throw new Error('Formato de telefone inválido. Deve conter 11 dígitos.');
+    for (const ch of mask) {
+        if (ch === '#') {
+            result += digits[di++] || '';
+        } else {
+            result += ch;
+        }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, ddd, nove, parte1, parte2] = match;
-    return `(${ddd}) ${nove} ${parte1}-${parte2}`;
-};
+    return result;
+}
 </script>
 
 <template>
