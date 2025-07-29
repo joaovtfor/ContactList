@@ -92,7 +92,8 @@ watch(
     <div class="px-5 py-3 md:px-10 md:py-6 xl:px-40 xl:py-12 flex flex-col gap-y-6">
         <div class="flex items-center justify-between">
             <Link :href="route('contacts.index')" class="text-gray-500 hover:text-gray-700">
-            <div class="w-6 h-6 flex items-center justify-center rounded-full text-black dark:text-white">
+            <div
+                class="w-10 h-10 flex items-center justify-center rounded-full text-black hover:bg-gray-100 dark:text-white dark:hover:text-gray-100 dark:hover:bg-gray-100/10">
                 <font-awesome-icon icon="fa-solid fa-arrow-left" class="fa-xl" />
             </div>
             </Link>

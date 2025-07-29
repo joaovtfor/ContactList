@@ -65,7 +65,8 @@ function formatDate(isoString: string) {
     <div class="px-5 py-3 md:px-10 md:py-6 xl:px-40 xl:py-12 flex flex-col gap-y-6">
         <div class="flex items-center justify-between">
             <Link :href="route('contacts.index')" class="text-gray-500 dark:text-gray-300 hover:text-gray-700">
-            <div class="w-6 h-6 flex items-center justify-center rounded-full text-black dark:text-white">
+            <div
+                class="w-10 h-10 flex items-center justify-center rounded-full text-black hover:bg-gray-100 dark:text-white dark:hover:text-gray-100 dark:hover:bg-gray-100/10">
                 <font-awesome-icon icon="fa-solid fa-arrow-left" class="fa-xl" />
             </div>
             </Link>
@@ -112,7 +113,7 @@ function formatDate(isoString: string) {
                             <div class="flex flex-col justify-center items-center gap-y-2 mt-3">
                                 <h2 class="text-2xl font-bold">{{ contact.name }}</h2>
                                 <p class="text-lg bg-gray-200 py1 px-3 rounded-lg dark:text-black">{{ contact.category
-                                    }}</p>
+                                }}</p>
                             </div>
                         </div>
                         <div class="w-full flex items-center justify-center flex-wrap mt-6">

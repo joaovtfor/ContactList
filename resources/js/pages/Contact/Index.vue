@@ -148,29 +148,35 @@ function formatPhone(input: string | number): string {
 
         <div id="cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Card v-for="contact in filteredContacts" :key="contact.id" class="p-4 w-full">
-                <Link :href="route('contacts.show', { id: contact.id })">
                 <CardContent>
                     <div class="flex gap-x-4">
                         <div
                             class="w-7 h-6 md:w-11 md:h-10 text-xs sm:text-md md:text-lg bg-[#1d1d1d] dark:bg-[#0f0f0f] rounded-full flex items-center justify-center text-white font-bold">
+                            <Link :href="route('contacts.show', { id: contact.id })">
                             <font-awesome-icon icon="fa-regular fa-user" />
+                            </Link>
                         </div>
                         <div class="w-full">
                             <div class="w-full flex items-start justify-between flex-wrap">
-                                <div class="flex flex-col gap-y-1">
-                                    <h2 class="text-xl font-bold">{{ contact.name }}</h2>
+                                <div class="w-3/4 flex flex-col gap-y-1">
+                                    <Link :href="route('contacts.show', { id: contact.id })">
+                                    <h2 class="text-xl font-bold">{{ contact.name }} <span><font-awesome-icon
+                                                icon="fa-solid fa-arrow-up-right-from-square"
+                                                class="fa-xs pl-2" /></span>
+                                    </h2>
                                     <p class="text-lg">{{ contact.category }}</p>
+                                    </Link>
                                 </div>
-                                <div>
+                                <div class="w-1/4">
 
                                     <Link :href="route('contacts.edit', { id: contact.id })">
                                     <Button variant="ghost" class="p-2">
                                         <font-awesome-icon icon="fa-solid fa-pen-to-square" class="fa-lg" />
                                     </Button>
                                     </Link>
-                                    <AlertDialog>
+                                    <AlertDialog class="z-50">
                                         <AlertDialogTrigger as-child>
-                                            <Button variant="ghost" class="p-2">
+                                            <Button variant="ghost" class="p-2 z-10">
                                                 <font-awesome-icon icon="fa-solid fa-trash"
                                                     class="fa-lg text-red-500" />
                                             </Button>
@@ -208,7 +214,6 @@ function formatPhone(input: string | number): string {
                         </div>
                     </div>
                 </CardContent>
-                </Link>
             </Card>
         </div>
         <Table id="table">
@@ -227,6 +232,7 @@ function formatPhone(input: string | number): string {
             </TableHeader>
             <TableBody>
                 <TableRow v-for="contact in filteredContacts" :key="contact.id">
+
                     <TableCell>{{ contact.name }}</TableCell>
                     <TableCell>{{ formatPhone(contact.phone) }}</TableCell>
                     <TableCell>{{ contact.email }}</TableCell>
@@ -235,13 +241,13 @@ function formatPhone(input: string | number): string {
                     <TableCell>{{ contact.category }}</TableCell>
                     <TableCell>
                         <Link :href="route('contacts.edit', { id: contact.id })">
-                        <Button variant="ghost" class="p-2">
+                        <Button variant="ghost" class="p-2 cursor-pointer">
                             <font-awesome-icon icon="fa-solid fa-pen-to-square" class="fa-lg" />
                         </Button>
                         </Link>
                         <AlertDialog>
                             <AlertDialogTrigger as-child>
-                                <Button variant="ghost" class="p-2">
+                                <Button variant="ghost" class="p-2 cursor-pointer">
                                     <font-awesome-icon icon="fa-solid fa-trash" class="fa-lg text-red-500" />
                                 </Button>
                             </AlertDialogTrigger>
@@ -258,7 +264,11 @@ function formatPhone(input: string | number): string {
                                 </AlertDialogFooter>
                             </AlertDialogContent>
                         </AlertDialog>
-
+                        <Link :href="route('contacts.show', { id: contact.id })">
+                        <Button variant="ghost" class="p-2 cursor-pointer">
+                            <font-awesome-icon icon="fa-solid fa-user" class="fa-lg" />
+                        </Button>
+                        </Link>
                     </TableCell>
                 </TableRow>
             </TableBody>
