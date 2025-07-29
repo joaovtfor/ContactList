@@ -28,13 +28,13 @@ class Contact extends Model
     //         return DB::select($sql, $params);
     //     }
 
-    //     public static function getContacts()
-    //     {
-    //         $sql = <<< SQL
-    //             SELECT *
-    //               FROM contacts
-    // SQL;
+    public static function getContacts()
+    {
+        $sql = <<< SQL
+                SELECT *
+                  FROM contacts
+    SQL;
 
-    //         return DB::select($sql);
-    //     }
+        return DB::select($sql);
+    }
 }
