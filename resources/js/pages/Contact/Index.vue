@@ -31,7 +31,7 @@ import { Link, router, usePage } from '@inertiajs/vue3';
 
 import { Toaster, toast } from 'vue-sonner';
 
-import { ref, reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 const mode = useColorMode({
     disableTransition: false,
@@ -59,10 +59,6 @@ interface Contact {
     category: string;
     state: { id: number, name: string };
     city: string;
-};
-
-interface Props {
-    contacts: Contact[];
 };
 
 const props = defineProps<{ contacts: Contact[] }>();
@@ -102,6 +98,7 @@ function formatPhone(input: string | number): string {
         throw new Error('Formato de telefone inválido. Deve conter 11 dígitos.');
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, ddd, nove, parte1, parte2] = match;
     return `(${ddd}) ${nove} ${parte1}-${parte2}`;
 };

@@ -48,6 +48,7 @@ function formatPhone(input: string | number): string {
         throw new Error('Formato de telefone inválido. Deve conter 11 dígitos, ex: 54999303946');
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, ddd, nove, parte1, parte2] = match;
     return `(${ddd}) ${nove} ${parte1}-${parte2}`;
 };
